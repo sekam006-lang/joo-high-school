@@ -1,0 +1,1670 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JOO High School</title>
+
+<style>
+
+/* =========================
+   ОСНОВА
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #14213d;
+    background: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: #123c8c;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo span {
+    color: #f2b84b;
+}
+
+nav a {
+    margin-left: 22px;
+    text-decoration: none;
+    color: #33415c;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background: #123c8c;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #123c8c;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #ffffff25,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #123c8c,
+            #1764bd
+        );
+
+    color: white;
+}
+
+.hero-inner {
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 110px 24px;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.hero-text {
+    animation: slideLeft 1s ease;
+}
+
+.hero-small {
+    font-weight: bold;
+    color: #cfe0ff;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 80px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 650px;
+    color: #e8f1ff;
+}
+
+.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        background 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px #0003;
+}
+
+.btn-primary {
+    background: white;
+    color: #123c8c;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #ffffff80;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #123c8c;
+}
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card {
+    background: #ffffff18;
+
+    border: 1px solid #ffffff40;
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    backdrop-filter: blur(10px);
+
+    animation: slideRight 1s ease;
+
+    transition: 0.4s;
+}
+
+.hero-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+}
+
+.number {
+    font-size: 55px;
+    font-weight: bold;
+    color: #f2b84b;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 85px 24px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.section-sub {
+    text-align: center;
+    color: #667085;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #f8faff;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.about-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.list div {
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    background: #f4f7fc;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.list div:hover {
+    transform: translateX(8px);
+    background: #e9f0ff;
+}
+
+.about-box {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 10px 35px #173c8c15;
+
+    transition: 0.4s;
+}
+
+.about-box:hover {
+    transform: translateY(-8px);
+}
+
+/* =========================
+   СТАТИСТИКА
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.stat {
+    text-align: center;
+
+    padding: 20px;
+
+    border: 1px solid #e3e9f3;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.stat:hover {
+    transform: scale(1.05);
+    border-color: #123c8c;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 30px;
+
+    color: #123c8c;
+}
+
+/* =========================
+   КАРТОЧКИ
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.card {
+    background: #f4f7fc;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e3e9f3;
+
+    transition:
+        transform 0.4s,
+        box-shadow 0.4s,
+        background 0.4s;
+
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 30px #123c8c20;
+
+    background: white;
+}
+
+.icon {
+    font-size: 35px;
+
+    transition: 0.3s;
+}
+
+.card:hover .icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.card h3 {
+    font-size: 21px;
+    margin: 12px 0 8px;
+}
+
+/* =========================
+   ПОСТУПЛЕНИЕ
+========================= */
+
+.admission {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #ffffff15,
+            transparent 35%
+        ),
+        #123c8c;
+
+    color: white;
+
+    text-align: center;
+}
+
+.admission p {
+    color: #dbe8ff;
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0c285c;
+
+    color: #cddaf0;
+
+    padding: 30px 24px;
+}
+
+.footer-inner {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   МОДАЛЬНОЕ ОКНО
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 3000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.65);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    position: relative;
+
+    animation: modalOpen 0.4s ease;
+
+    box-shadow: 0 20px 60px #0005;
+}
+
+.modal-content h2 {
+    color: #123c8c;
+
+    margin-bottom: 15px;
+}
+
+.modal-content h3 {
+    margin-top: 20px;
+
+    color: #14213d;
+}
+
+.modal-content p {
+    color: #667085;
+}
+
+.modal-content ul {
+    margin: 10px 0 0 20px;
+}
+
+.close {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    font-size: 30px;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    color: #667085;
+
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #123c8c;
+
+    transform: rotate(90deg);
+}
+
+/* =========================
+   АНИМАЦИИ
+========================= */
+
+@keyframes slideLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalOpen {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero-inner,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            JOO <span>High School</span>
+        </div>
+
+        <nav>
+
+            <a href="#about">
+                О школе
+            </a>
+
+            <a href="#programs">
+                Направления
+            </a>
+
+            <a href="#achievements">
+                Достижения
+            </a>
+
+            <a href="#contact">
+                Контакты
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-text">
+
+            <p class="hero-small">
+                ОБРАЗОВАНИЕ • ВОЗМОЖНОСТИ • БУДУЩЕЕ
+            </p>
+
+            <h1>
+                JOO<br>
+                High School
+            </h1>
+
+            <p>
+                Современная школьная среда,
+                где знания превращаются в навыки,
+                идеи и уверенность в будущем.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="#about"
+                    class="btn btn-primary"
+                >
+                    Узнать о школе
+                </a>
+
+                <a
+                    href="#contact"
+                    class="btn btn-secondary"
+                >
+                    Связаться с нами
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="number">
+                01
+            </div>
+
+            <h2>
+                Шаг к большим целям
+            </h2>
+
+            <p>
+                Учимся мыслить самостоятельно,
+                работать в команде и создавать
+                собственные проекты.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     О ШКОЛЕ
+========================= -->
+
+<section
+    id="about"
+    class="about"
+>
+
+    <div class="container about-grid">
+
+
+        <div>
+
+            <h2 class="about-title">
+                О JOO High School
+            </h2>
+
+            <p>
+                JOO High School — современная
+                образовательная среда с фокусом
+                на академическое развитие,
+                практические навыки и личностный
+                рост учащихся.
+            </p>
+
+
+            <div class="list">
+
+                <div>
+                    ✓ Индивидуальный подход к ученикам
+                </div>
+
+                <div>
+                    ✓ Проектное и практическое обучение
+                </div>
+
+                <div>
+                    ✓ Поддержка олимпиад и инициатив
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>
+                Наша идея
+            </h3>
+
+            <p>
+                Создать пространство, в котором
+                школьники не просто получают знания,
+                а учатся применять их в реальных задачах.
+            </p>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    идей
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    развитие
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    команды
+                </div>
+
+                <div class="stat">
+                    <strong>1</strong>
+                    цель
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     НАПРАВЛЕНИЯ
+========================= -->
+
+<section id="programs">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Направления
+        </h2>
+
+        <p class="section-sub">
+            Нажмите на любое направление,
+            чтобы узнать подробнее.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- НАУКА -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🔬 Наука',
+                    'Научное направление',
+                    'Здесь ученики развивают исследовательское и аналитическое мышление. Они изучают окружающий мир, проводят исследования и учатся находить решения сложных задач.'
+                )"
+            >
+
+                <div class="icon">
+                    🔬
+                </div>
+
+                <h3>
+                    Наука
+                </h3>
+
+                <p>
+                    Исследования, эксперименты
+                    и аналитическое мышление.
+                </p>
+
+            </div>
+
+
+
+            <!-- IT -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '💻 IT и технологии',
+                    'IT-направление',
+                    'Ученики знакомятся с программированием, современными технологиями, цифровыми инструментами и созданием собственных проектов.'
+                )"
+            >
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <h3>
+                    IT и технологии
+                </h3>
+
+                <p>
+                    Программирование, технологии
+                    и цифровые проекты.
+                </p>
+
+            </div>
+
+
+
+            <!-- ЯЗЫКИ -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🌎 Языки',
+                    'Языковое направление',
+                    'Развитие навыков общения, чтения, письма и понимания иностранных языков. Ученики получают возможность практиковать язык в различных ситуациях.'
+                )"
+            >
+
+                <div class="icon">
+                    🌎
+                </div>
+
+                <h3>
+                    Языки
+                </h3>
+
+                <p>
+                    Языковая практика и коммуникация.
+                </p>
+
+            </div>
+
+
+
+            <!-- ТВОРЧЕСТВО -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🎨 Творчество',
+                    'Творческое направление',
+                    'Творческие занятия помогают ученикам развивать воображение, креативность и способность выражать собственные идеи через дизайн, искусство и проекты.'
+                )"
+            >
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Творчество
+                </h3>
+
+                <p>
+                    Дизайн, искусство и креативные проекты.
+                </p>
+
+            </div>
+
+
+
+            <!-- ОЛИМПИАДЫ -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🏆 Олимпиады',
+                    'Олимпиадное направление',
+                    'Подготовка к интеллектуальным соревнованиям, олимпиадам и конкурсам. Ученики решают сложные задачи и развивают нестандартное мышление.'
+                )"
+            >
+
+                <div class="icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Олимпиады
+                </h3>
+
+                <p>
+                    Подготовка к олимпиадам
+                    и интеллектуальным конкурсам.
+                </p>
+
+            </div>
+
+
+
+            <!-- ЛИДЕРСТВО -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🤝 Лидерство',
+                    'Лидерское направление',
+                    'Ученики развивают навыки командной работы, коммуникации, организации мероприятий и школьных проектов.'
+                )"
+            >
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Лидерство
+                </h3>
+
+                <p>
+                    Командная работа и развитие лидерских навыков.
+                </p>
+
+            </div>
+
+
+            <!-- СПОРТ -->
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '⚽ Спорт',
+                    'Спортивное направление',
+                    'Спортивные занятия помогают развивать дисциплину, командную работу и интерес к активному образу жизни. Здесь можно разместить виды спорта и школьные команды.'
+                )"
+            >
+
+                <div class="icon">
+                    ⚽
+                </div>
+
+                <h3>
+                    Спорт
+                </h3>
+
+                <p>
+                    Спортивные секции, команды
+                    и соревнования.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ДОСТИЖЕНИЯ
+========================= -->
+
+<section
+    id="achievements"
+    class="about"
+>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Достижения и жизнь школы
+        </h2>
+
+        <p class="section-sub">
+            Место для новостей, побед,
+            мероприятий и проектов учеников.
+        </p>
+
+
+        <div class="cards">
+
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '📰 Новости',
+                    'Новости школы',
+                    'Здесь можно публиковать новости JOO High School: важные объявления, школьные события, новые проекты и другие актуальные материалы.'
+                )"
+            >
+
+                <div class="icon">
+                    📰
+                </div>
+
+                <h3>
+                    Новости
+                </h3>
+
+                <p>
+                    Свежие события и объявления школы.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🚀 Проекты учеников',
+                    'Проекты',
+                    'Здесь можно разместить презентации, исследования, разработки и другие проекты, созданные учениками школы.'
+                )"
+            >
+
+                <div class="icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Проекты учеников
+                </h3>
+
+                <p>
+                    Исследования, разработки
+                    и командные проекты.
+                </p>
+
+            </div>
+
+
+            <div
+                class="card"
+                onclick="openProgram(
+                    '🎉 Школьные события',
+                    'Мероприятия',
+                    'Здесь можно рассказать о школьных праздниках, конференциях, конкурсах, спортивных мероприятиях и клубах.'
+                )"
+            >
+
+                <div class="icon">
+                    🎉
+                </div>
+
+                <h3>
+                    Школьные события
+                </h3>
+
+                <p>
+                    Конкурсы, конференции,
+                    спорт и клубы.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ПОСТУПЛЕНИЕ
+========================= -->
+
+<section class="admission">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Готовы начать?
+        </h2>
+
+        <p>
+            Узнайте больше о поступлении
+            в JOO High School.
+        </p>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="openAdmission()"
+        >
+            Подробнее о поступлении
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     КОНТАКТЫ
+========================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Контакты
+        </h2>
+
+        <p class="section-sub">
+            Здесь можно разместить официальные
+            контакты JOO High School.
+        </p>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <h3>
+                    Адрес
+                </h3>
+
+                <p>
+                    Ваш адрес школы
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    📞
+                </div>
+
+                <h3>
+                    Телефон
+                </h3>
+
+                <p>
+                    +7 (___) ___-__-__
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ✉️
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    school@example.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>
+                JOO High School
+            </strong>
+
+            <br>
+
+            Образование для будущего.
+
+        </div>
+
+
+        <div>
+            © 2026 JOO High School
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     ОБЩЕЕ ОКНО
+========================= -->
+
+<div
+    id="programModal"
+    class="modal"
+    onclick="closeOutside(event)"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeProgram()"
+        >
+            ×
+        </button>
+
+
+        <h2 id="programTitle">
+            Заголовок
+        </h2>
+
+
+        <h3 id="programSubtitle">
+            Направление
+        </h3>
+
+
+        <p id="programText">
+            Информация
+        </p>
+
+
+        <br>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="closeProgram()"
+        >
+            Закрыть
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     ОКНО ПОСТУПЛЕНИЯ
+========================= -->
+
+<div
+    id="admissionModal"
+    class="modal"
+    onclick="closeAdmissionOutside(event)"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close"
+            onclick="closeAdmission()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            Поступление в JOO High School
+        </h2>
+
+
+        <p>
+            Здесь можно разместить актуальную
+            информацию о поступлении в школу.
+        </p>
+
+
+        <h3>
+            Этапы поступления
+        </h3>
+
+
+        <ul>
+
+            <li>
+                Подача заявления
+            </li>
+
+            <li>
+                Предоставление необходимых документов
+            </li>
+
+            <li>
+                Прохождение вступительного отбора
+            </li>
+
+            <li>
+                Получение информации о результате
+            </li>
+
+        </ul>
+
+
+        <h3>
+            Необходимые документы
+        </h3>
+
+
+        <ul>
+
+            <li>
+                Документ ученика
+            </li>
+
+            <li>
+                Документы законного представителя
+            </li>
+
+            <li>
+                Документы об образовании
+            </li>
+
+        </ul>
+
+
+        <br>
+
+
+        <button
+            class="btn btn-primary"
+            onclick="closeAdmission()"
+        >
+            Понятно
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   ОТКРЫТИЕ НАПРАВЛЕНИЯ
+========================= */
+
+function openProgram(title, subtitle, text) {
+
+    document.getElementById("programTitle").textContent =
+        title;
+
+    document.getElementById("programSubtitle").textContent =
+        subtitle;
+
+    document.getElementById("programText").textContent =
+        text;
+
+    document.getElementById("programModal")
+        .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* =========================
+   ЗАКРЫТИЕ НАПРАВЛЕНИЯ
+========================= */
+
+function closeProgram() {
+
+    document.getElementById("programModal")
+        .classList.remove("active");
+
+    document.body.style.overflow = "auto";
+}
+
+
+/* =========================
+   ОТКРЫТИЕ ПОСТУПЛЕНИЯ
+========================= */
+
+function openAdmission() {
+
+    document.getElementById("admissionModal")
+        .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* =========================
+   ЗАКРЫТИЕ ПОСТУПЛЕНИЯ
+========================= */
+
+function closeAdmission() {
+
+    document.getElementById("admissionModal")
+        .classList.remove("active");
+
+    document.body.style.overflow = "auto";
+}
+
+
+/* =========================
+   КЛИК ВНЕ ОКНА
+========================= */
+
+function closeOutside(event) {
+
+    if (
+        event.target.id === "programModal"
+    ) {
+
+        closeProgram();
+
+    }
+
+}
+
+
+function closeAdmissionOutside(event) {
+
+    if (
+        event.target.id === "admissionModal"
+    ) {
+
+        closeAdmission();
+
+    }
+
+}
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeProgram();
+
+            closeAdmission();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   АНИМАЦИЯ КАРТОЧЕК
+========================= */
+
+const cards =
+    document.querySelectorAll(".card");
+
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(
+                function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+cards.forEach(
+    function(card) {
+
+        card.style.opacity = "0";
+
+        card.style.transform =
+            "translateY(40px)";
+
+        card.style.transition =
+            "opacity 0.7s ease, transform 0.7s ease";
+
+        observer.observe(card);
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
+```
