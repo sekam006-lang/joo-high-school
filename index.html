@@ -3,538 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>JOO High School</title>
+<meta name="description" content="JOO High School — современная школа, образование, проекты, спорт и творчество.">
+<title>JOO High School — современная школа</title>
 
 <style>
-:root {
-    --bg: #f5f7fb;
-    --card: #ffffff;
-    --text: #172033;
-    --muted: #667085;
-    --primary: #315efb;
-    --primary-dark: #2146c7;
-    --border: #e5e7eb;
-    --shadow: 0 10px 30px rgba(0,0,0,.08);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    transition: .3s;
-}
-
-body.dark {
-    --bg: #10131a;
-    --card: #181c25;
-    --text: #f5f7fa;
-    --muted: #aab2c0;
-    --border: #2a303c;
-    --shadow: 0 10px 30px rgba(0,0,0,.3);
-}
-
-/* HEADER */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--primary);
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-.theme-btn,
-.menu-btn {
-    border: none;
-    background: var(--bg);
-    color: var(--text);
-    padding: 10px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.menu-btn {
-    display: none;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 70px 20px;
-    background:
-        radial-gradient(circle at top left, rgba(49,94,251,.25), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(120,80,255,.2), transparent 35%),
-        var(--bg);
-}
-
-.hero-content {
-    max-width: 850px;
-    animation: fadeUp 1s ease;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 8vw, 78px);
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: var(--primary);
-}
-
-.hero p {
-    font-size: 20px;
-    color: var(--muted);
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    border: none;
-    background: var(--primary);
-    color: white;
-    padding: 14px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: .25s;
-}
-
-.btn:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px);
-}
-
-/* SECTIONS */
-
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 90px 20px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--muted);
-    margin-bottom: 45px;
-}
-
-/* ABOUT */
-
-.about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-box {
-    background: var(--card);
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
-
-.about-box h3 {
-    margin-bottom: 15px;
-    font-size: 25px;
-}
-
-/* CARDS */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-}
-
-.card-icon {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--muted);
-}
-
-/* SEARCH */
-
-.search-box {
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 16px 20px;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--card);
-    color: var(--text);
-    outline: none;
-    font-size: 16px;
-}
-
-/* EVENTS */
-
-.event {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.event-date {
-    min-width: 70px;
-    text-align: center;
-    background: var(--primary);
-    color: white;
-    padding: 12px;
-    border-radius: 12px;
-    font-weight: bold;
-}
-
-.event-info h3 {
-    margin-bottom: 5px;
-}
-
-/* GALLERY */
-
-.gallery-card {
-    min-height: 230px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: white;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(135deg, #315efb, #7b4dff);
-}
-
-.gallery-card:nth-child(2) {
-    background: linear-gradient(135deg, #ff6b6b, #ff9f43);
-}
-
-.gallery-card:nth-child(3) {
-    background: linear-gradient(135deg, #00a896, #02c39a);
-}
-
-.gallery-card:nth-child(4) {
-    background: linear-gradient(135deg, #8338ec, #ff006e);
-}
-
-.gallery-card:nth-child(5) {
-    background: linear-gradient(135deg, #3a86ff, #00b4d8);
-}
-
-.gallery-card:nth-child(6) {
-    background: linear-gradient(135deg, #6a994e, #386641);
-}
-
-.gallery-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.15);
-}
-
-.gallery-content {
-    position: relative;
-    z-index: 2;
-}
-
-.gallery-icon {
-    font-size: 55px;
-    margin-bottom: 10px;
-}
-
-/* TEACHERS */
-
-.teacher {
-    text-align: center;
-}
-
-.teacher-avatar {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary);
-    color: white;
-    font-size: 35px;
-}
-
-/* REVIEWS */
-
-.review {
-    position: relative;
-}
-
-.review::before {
-    content: "“";
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 60px;
-    color: var(--primary);
-    opacity: .3;
-}
-
-/* FORM */
-
-.form {
-    max-width: 700px;
-    margin: auto;
-    background: var(--card);
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form label {
-    display: block;
-    margin-bottom: 7px;
-    font-weight: bold;
-}
-
-.form input,
-.form textarea,
-.form select {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 16px;
-}
-
-.form textarea {
-    min-height: 130px;
-    resize: vertical;
-}
-
-/* CONTACTS */
-
-.contacts {
-    text-align: center;
-}
-
-.contact-item {
-    margin: 12px;
-    font-size: 18px;
-}
-
-.contact-item a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-/* FOOTER */
-
-footer {
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 35px 20px;
-    color: var(--muted);
-}
-
-/* MODAL */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.65);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 20px;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-box {
-    width: min(600px, 100%);
-    background: var(--card);
-    color: var(--text);
-    padding: 35px;
-    border-radius: 20px;
-    position: relative;
-    animation: modalIn .3s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,.3);
-}
-
-.modal-close {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    border: none;
-    background: transparent;
-    color: var(--text);
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.modal-icon {
-    font-size: 65px;
-    margin-bottom: 10px;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes modalIn {
-    from {
-        opacity: 0;
-        transform: scale(.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.reveal {
-    animation: fadeUp .8s ease;
-}
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-        background: var(--card);
-        flex-direction: column;
-        border-bottom: 1px solid var(--border);
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .navbar {
-        gap: 10px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        min-height: 520px;
-    }
-
-    .hero p {
-        font-size: 17px;
-    }
+:root{
+  --bg:#f4f7fb;--surface:#fff;--surface2:#eef3ff;--text:#172033;--muted:#687386;
+  --primary:#315efb;--primary2:#6b4df6;--success:#18a56b;--danger:#e55353;
+  --border:#e3e8f0;--shadow:0 14px 40px rgba(30,45,80,.10);--radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:.25s}
+body.dark{--bg:#0d1119;--surface:#151b26;--surface2:#20283a;--text:#f3f6fb;--muted:#aab4c4;--border:#293244;--shadow:0 16px 45px rgba(0,0,0,.28)}
+button,input,textarea,select{font:inherit}
+button,a{transition:.2s}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:1000;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.navbar{min-height:72px;display:flex;align-items:center;gap:18px}
+.logo{font-size:24px;font-weight:900;color:var(--primary);white-space:nowrap}
+nav{display:flex;gap:17px;align-items:center;margin-left:auto}
+nav a{font-weight:700;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--primary)}
+.icon-btn,.menu-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:12px;padding:9px 11px;cursor:pointer}
+.menu-btn{display:none}
+.hero{min-height:650px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 15% 20%,#315efb35,transparent 32%),radial-gradient(circle at 85% 70%,#7c4dff35,transparent 32%),var(--bg)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.45;animation:float 8s ease-in-out infinite}
+.hero:before{width:260px;height:260px;background:#315efb22;left:-80px;top:100px}
+.hero:after{width:320px;height:320px;background:#8b5cf622;right:-100px;bottom:-80px;animation-delay:1s}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:80px 20px}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:var(--surface2);color:var(--primary);font-weight:800;margin-bottom:20px}
+.hero h1{font-size:clamp(42px,8vw,82px);line-height:1.02;margin-bottom:22px}
+.hero h1 span{color:var(--primary)}
+.hero p{font-size:20px;color:var(--muted);max-width:760px;margin:0 auto 30px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{border:0;border-radius:13px;background:var(--primary);color:#fff;padding:13px 20px;font-weight:800;cursor:pointer;display:inline-block}
+.btn:hover{transform:translateY(-2px);background:#2148d1}
+.btn.secondary{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+.btn.success{background:var(--success)}
+.btn.small{padding:9px 13px;font-size:14px}
+section{padding:88px 0}
+.section-head{text-align:center;max-width:760px;margin:0 auto 42px}
+.section-head h2{font-size:38px;line-height:1.15;margin-bottom:10px}
+.section-head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);transition:.25s}
+.card:hover{transform:translateY(-6px)}
+.clickable{cursor:pointer}
+.icon{font-size:42px;margin-bottom:12px}
+.muted{color:var(--muted)}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.stat{padding:25px;border-radius:18px;background:var(--surface2);text-align:center}
+.stat strong{display:block;font-size:34px;color:var(--primary)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.search{max-width:650px;margin:0 auto 28px;position:relative}
+.search input{width:100%;padding:15px 18px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:14px;outline:none}
+.search-results{display:grid;gap:10px;max-width:800px;margin:auto}
+.result{padding:15px;background:var(--surface);border:1px solid var(--border);border-radius:13px}
+.event{display:flex;gap:15px;align-items:flex-start}
+.date{min-width:66px;text-align:center;background:var(--primary);color:#fff;border-radius:13px;padding:9px;font-weight:900}
+.date b{font-size:22px;display:block}
+.gallery-card{min-height:230px;display:flex;align-items:flex-end;overflow:hidden;color:#fff;position:relative;background:linear-gradient(135deg,#315efb,#7b4dff);cursor:pointer}
+.gallery-card:nth-child(2){background:linear-gradient(135deg,#ff6b6b,#ff9f43)}
+.gallery-card:nth-child(3){background:linear-gradient(135deg,#00a896,#02c39a)}
+.gallery-card:nth-child(4){background:linear-gradient(135deg,#8338ec,#ff006e)}
+.gallery-card:nth-child(5){background:linear-gradient(135deg,#3a86ff,#00b4d8)}
+.gallery-card:nth-child(6){background:linear-gradient(135deg,#6a994e,#386641)}
+.gallery-card:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.gallery-content{position:relative;z-index:2}
+.gallery-icon{font-size:55px}
+.avatar{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:var(--surface2);font-size:38px;margin-bottom:13px}
+.teacher h3{margin-bottom:4px}
+.quote{font-size:18px}
+.quote:before{content:"“";font-size:55px;color:var(--primary);display:block;height:35px}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:16px}
+table{width:100%;border-collapse:collapse;min-width:700px;background:var(--surface)}
+th,td{padding:14px;border-bottom:1px solid var(--border);text-align:left}
+th{background:var(--surface2)}
+.materials{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.tag{padding:8px 11px;border-radius:999px;background:var(--surface2);color:var(--primary);font-weight:700}
+.faq{display:grid;gap:10px}
+.faq button{width:100%;text-align:left;padding:18px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:14px;cursor:pointer;font-weight:800}
+.faq .answer{display:none;padding:0 18px 18px;color:var(--muted)}
+.faq .item.open .answer{display:block}
+.form{max-width:760px;margin:auto;background:var(--surface);padding:30px;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:800;margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:13px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px;outline:none}
+.field textarea{min-height:120px;resize:vertical}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact{text-align:center}
+.contact a{color:var(--primary);font-weight:800}
+.login-panel{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.dashboard{display:none}
+.dashboard.active{display:block}
+.dashboard .userbox{background:var(--surface2);padding:18px;border-radius:15px;margin-bottom:15px}
+.progress{height:10px;background:var(--border);border-radius:20px;overflow:hidden;margin-top:8px}
+.progress span{display:block;height:100%;background:var(--primary);width:78%}
+.chat{height:390px;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.chat-messages{padding:18px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:80%;padding:10px 13px;border-radius:14px;background:var(--surface2)}
+.msg.user{align-self:flex-end;background:var(--primary);color:#fff}
+.chat-input{display:flex;gap:8px;padding:10px;border-top:1px solid var(--border)}
+.chat-input input{flex:1;padding:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px}
+footer{padding:40px 0;border-top:1px solid var(--border);background:var(--surface);color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;place-items:center;padding:20px;z-index:3000}
+.modal.active{display:grid}
+.modal-box{width:min(680px,100%);max-height:90vh;overflow:auto;background:var(--surface);color:var(--text);border-radius:22px;padding:30px;position:relative;animation:pop .25s ease}
+.close{position:absolute;right:14px;top:10px;border:0;background:transparent;color:var(--text);font-size:30px;cursor:pointer}
+.toast{position:fixed;right:20px;bottom:20px;z-index:5000;background:var(--text);color:var(--bg);padding:14px 18px;border-radius:12px;display:none;box-shadow:var(--shadow)}
+.toast.show{display:block;animation:fade .25s}
+.top{position:fixed;right:20px;bottom:20px;z-index:1000;display:none}
+.top.show{display:block}
+.hidden{display:none!important}
+.center{text-align:center}
+.map{min-height:230px;border-radius:18px;background:linear-gradient(135deg,#dbe7ff,#edf0ff);display:grid;place-items:center;color:#315efb;font-weight:900;font-size:25px;border:1px solid var(--border)}
+body.dark .map{background:linear-gradient(135deg,#202a42,#192031)}
+.notice{padding:15px 18px;border-radius:13px;background:#fff5d6;border:1px solid #f1d37a;color:#6e5200;margin-bottom:15px}
+body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
+@keyframes float{50%{transform:translateY(-25px) translateX(15px)}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--surface);padding:20px;flex-direction:column;border-bottom:1px solid var(--border)}
+  nav.active{display:flex}.menu-btn{display:block}.grid,.grid-4,.contact-grid{grid-template-columns:1fr 1fr}.about,.login-panel{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .grid,.grid-4,.contact-grid,.stats,.form-grid{grid-template-columns:1fr}
+  .hero{min-height:560px}.hero p{font-size:17px}.section-head h2{font-size:30px}
+  .navbar{gap:7px}.logo{font-size:20px}
 }
 </style>
 </head>
@@ -542,1052 +145,396 @@ footer {
 <body>
 
 <header>
-    <div class="navbar">
-
-        <div class="logo">JOO High School</div>
-
-        <nav id="nav">
-            <a href="#about">О школе</a>
-            <a href="#directions">Направления</a>
-            <a href="#events">События</a>
-            <a href="#gallery">Галерея</a>
-            <a href="#teachers">Учителя</a>
-            <a href="#admission">Поступление</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-
-        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    </div>
+  <div class="container navbar">
+    <a class="logo" href="#home">JOO High School</a>
+    <nav id="nav">
+      <a href="#about">О школе</a>
+      <a href="#directions">Направления</a>
+      <a href="#news">Новости</a>
+      <a href="#schedule">Расписание</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#admission">Поступление</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="icon-btn" onclick="toggleTheme()" title="Тема">🌙</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
 </header>
 
+<main id="home">
 
-<!-- HERO -->
-
-<div class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Добро пожаловать в
-            <span>JOO High School</span>
-        </h1>
-
-        <p>
-            Современная школа для тех, кто хочет развиваться,
-            создавать новое и достигать больших целей.
-        </p>
-
-        <a href="#admission" class="btn">
-            Подробнее о поступлении
-        </a>
-
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">🎓 Современное образование</span>
+    <h1>Добро пожаловать в <span>JOO High School</span></h1>
+    <p>Место, где знания превращаются в проекты, идеи и возможности.</p>
+    <div class="actions">
+      <a class="btn" href="#admission">🎓 Поступление</a>
+      <a class="btn secondary" href="#about">Узнать о школе</a>
     </div>
-
-</div>
-
-
-<!-- ABOUT -->
+  </div>
+</section>
 
 <section id="about">
-
-    <h2 class="section-title">О школе</h2>
-
-    <p class="section-subtitle">
-        Образование, развитие и возможности
-    </p>
-
-    <div class="about">
-
-        <div class="about-box reveal">
-
-            <h3>JOO High School</h3>
-
-            <p>
-                JOO High School — современная образовательная среда,
-                где ученики получают знания, развивают навыки,
-                участвуют в проектах и находят свои интересы.
-            </p>
-
-            <br>
-
-            <p>
-                Мы стремимся объединить академическое образование,
-                технологии, творчество, спорт и лидерство.
-            </p>
-
-        </div>
-
-        <div class="about-box reveal">
-
-            <h3>Наши возможности</h3>
-
-            <p>✓ Современное обучение</p>
-            <p>✓ Проектная деятельность</p>
-            <p>✓ Олимпиады и конкурсы</p>
-            <p>✓ Спортивные мероприятия</p>
-            <p>✓ Творческие проекты</p>
-            <p>✓ Развитие лидерских навыков</p>
-
-        </div>
-
+  <div class="section-head">
+    <h2>О школе</h2>
+    <p>Образование, технологии, творчество, спорт и развитие личности.</p>
+  </div>
+  <div class="about">
+    <div class="card reveal">
+      <h3>JOO High School</h3>
+      <p class="muted">Это демонстрационный школьный сайт. Здесь собраны основные разделы современной школы: программы, события, расписание, проекты, галерея, поступление и личный кабинет.</p>
+      <br>
+      <p>Ученики могут развивать академические знания, участвовать в проектах, олимпиадах, творческих и спортивных мероприятиях.</p>
     </div>
-
+    <div class="card reveal">
+      <div class="stats">
+        <div class="stat"><strong>7+</strong><span>направлений</span></div>
+        <div class="stat"><strong>20+</strong><span>проектов</span></div>
+        <div class="stat"><strong>10+</strong><span>событий</span></div>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-<!-- DIRECTIONS -->
 
 <section id="directions">
-
-    <h2 class="section-title">Направления</h2>
-
-    <p class="section-subtitle">
-        Выбирай направление и развивай свои способности
-    </p>
-
-    <div class="grid">
-
-        <div class="card" onclick="openProgram(
-        'Наука',
-        '🔬',
-        'Исследовательские проекты, эксперименты, научные конкурсы и развитие критического мышления.'
-        )">
-
-            <div class="card-icon">🔬</div>
-            <h3>Наука</h3>
-            <p>Исследования и эксперименты.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'IT и технологии',
-        '💻',
-        'Программирование, цифровые проекты, технологии и создание собственных решений.'
-        )">
-
-            <div class="card-icon">💻</div>
-            <h3>IT и технологии</h3>
-            <p>Программирование и современные технологии.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'Языки',
-        '🌎',
-        'Изучение иностранных языков и развитие навыков общения.'
-        )">
-
-            <div class="card-icon">🌎</div>
-            <h3>Языки</h3>
-            <p>Иностранные языки и коммуникация.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'Творчество',
-        '🎨',
-        'Музыка, искусство, дизайн и другие творческие направления.'
-        )">
-
-            <div class="card-icon">🎨</div>
-            <h3>Творчество</h3>
-            <p>Искусство, дизайн и творчество.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'Олимпиады',
-        '🏆',
-        'Участие в интеллектуальных соревнованиях и олимпиадах.'
-        )">
-
-            <div class="card-icon">🏆</div>
-            <h3>Олимпиады</h3>
-            <p>Конкурсы и интеллектуальные соревнования.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'Лидерство',
-        '⭐',
-        'Развитие лидерских качеств, командной работы и навыков организации проектов.'
-        )">
-
-            <div class="card-icon">⭐</div>
-            <h3>Лидерство</h3>
-            <p>Командная работа и проекты.</p>
-
-        </div>
-
-
-        <div class="card" onclick="openProgram(
-        'Спорт',
-        '⚽',
-        'Спортивные секции, соревнования и активный образ жизни.'
-        )">
-
-            <div class="card-icon">⚽</div>
-            <h3>Спорт</h3>
-            <p>Секции и спортивные мероприятия.</p>
-
-        </div>
-
-    </div>
-
+  <div class="section-head">
+    <h2>Направления</h2>
+    <p>Нажми на карточку, чтобы открыть описание.</p>
+  </div>
+  <div class="grid">
+    <div class="card clickable reveal" onclick="openModal('Наука','🔬','Исследования, эксперименты, научные конференции и развитие критического мышления.')"><div class="icon">🔬</div><h3>Наука</h3><p class="muted">Исследования и эксперименты.</p></div>
+    <div class="card clickable reveal" onclick="openModal('IT и технологии','💻','Программирование, веб-разработка, цифровые проекты и современные технологии.')"><div class="icon">💻</div><h3>IT и технологии</h3><p class="muted">Код, проекты и технологии.</p></div>
+    <div class="card clickable reveal" onclick="openModal('Языки','🌎','Иностранные языки, коммуникация, выступления и международные проекты.')"><div class="icon">🌎</div><h3>Языки</h3><p class="muted">Языки и коммуникация.</p></div>
+    <div class="card clickable reveal" onclick="openModal('Творчество','🎨','Искусство, дизайн, музыка, медиа и творческие проекты.')"><div class="icon">🎨</div><h3>Творчество</h3><p class="muted">Искусство и дизайн.</p></div>
+    <div class="card clickable reveal" onclick="openModal('Олимпиады','🏆','Подготовка к интеллектуальным соревнованиям, олимпиадам и конкурсам.')"><div class="icon">🏆</div><h3>Олимпиады</h3><p class="muted">Конкурсы и достижения.</p></div>
+    <div class="card clickable reveal" onclick="openModal('Лидерство','⭐','Командная работа, организация проектов, презентации и развитие лидерских навыков.')"><div class="icon">⭐</div><h3>Лидерство</h3><p class="muted">Команды и проекты.</p></div>
+    <div class="card clickable reveal" onclick="openModal('Спорт','⚽','Секции, соревнования, командные игры и активные школьные мероприятия.')"><div class="icon">⚽</div><h3>Спорт</h3><p class="muted">Секции и соревнования.</p></div>
+  </div>
 </section>
 
-
-<!-- SEARCH -->
-
-<section>
-
-    <h2 class="section-title">Поиск по сайту</h2>
-
-    <div class="search-box">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Например: спорт, IT, учителя..."
-            oninput="searchSite()"
-        >
-
-    </div>
-
-    <div id="searchResult"></div>
-
+<section id="news">
+  <div class="section-head"><h2>Новости</h2><p>Последние события школьной жизни.</p></div>
+  <div class="grid">
+    <article class="card reveal"><span class="tag">15 сентября</span><h3 style="margin:15px 0 7px">День открытых дверей</h3><p class="muted">Знакомство со школой, направлениями и проектами.</p><button class="btn small" style="margin-top:15px" onclick="openModal('День открытых дверей','🏫','Здесь можно разместить подробную информацию, программу мероприятия и фотографии.')">Подробнее</button></article>
+    <article class="card reveal"><span class="tag">22 сентября</span><h3 style="margin:15px 0 7px">Научная конференция</h3><p class="muted">Ученики представляют исследовательские проекты.</p><button class="btn small" style="margin-top:15px" onclick="openModal('Научная конференция','🔬','Здесь можно разместить список проектов, расписание выступлений и результаты.')">Подробнее</button></article>
+    <article class="card reveal"><span class="tag">30 сентября</span><h3 style="margin:15px 0 7px">Спортивный день</h3><p class="muted">Командные соревнования и спортивные активности.</p><button class="btn small" style="margin-top:15px" onclick="openModal('Спортивный день','⚽','Здесь можно разместить расписание соревнований, команды и результаты.')">Подробнее</button></article>
+  </div>
 </section>
 
-
-<!-- EVENTS -->
-
-<section id="events">
-
-    <h2 class="section-title">События</h2>
-
-    <p class="section-subtitle">
-        Что происходит в школьной жизни
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-
-            <div class="event">
-
-                <div class="event-date">
-                    15<br>СЕН
-                </div>
-
-                <div class="event-info">
-
-                    <h3>День открытых дверей</h3>
-
-                    <p>
-                        Знакомство со школой и образовательными программами.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="event">
-
-                <div class="event-date">
-                    22<br>СЕН
-                </div>
-
-                <div class="event-info">
-
-                    <h3>Научная конференция</h3>
-
-                    <p>
-                        Ученики представят свои исследовательские проекты.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="event">
-
-                <div class="event-date">
-                    30<br>СЕН
-                </div>
-
-                <div class="event-info">
-
-                    <h3>Спортивный день</h3>
-
-                    <p>
-                        Соревнования и командные игры.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section id="schedule">
+  <div class="section-head"><h2>Расписание</h2><p>Демонстрационное расписание 10 класса.</p></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Время</th><th>Понедельник</th><th>Вторник</th><th>Среда</th><th>Четверг</th><th>Пятница</th></tr></thead>
+      <tbody>
+        <tr><td>08:30</td><td>Математика</td><td>Английский</td><td>Физика</td><td>Информатика</td><td>История</td></tr>
+        <tr><td>09:25</td><td>Русский язык</td><td>Биология</td><td>Математика</td><td>Английский</td><td>Физика</td></tr>
+        <tr><td>10:25</td><td>Информатика</td><td>История</td><td>Литература</td><td>Математика</td><td>Биология</td></tr>
+        <tr><td>11:20</td><td>Физика</td><td>Математика</td><td>Английский</td><td>Проект</td><td>Спорт</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-
-<!-- GALLERY -->
+<section id="homework">
+  <div class="section-head"><h2>Домашние задания</h2><p>Демонстрационный список заданий.</p></div>
+  <div class="grid">
+    <div class="card"><span class="tag">Математика</span><h3 style="margin:12px 0">Квадратные уравнения</h3><p class="muted">Решить упражнения 1–10.</p><small class="muted">Срок: пятница</small></div>
+    <div class="card"><span class="tag">Английский</span><h3 style="margin:12px 0">Vocabulary</h3><p class="muted">Выучить слова из раздела 4.</p><small class="muted">Срок: среда</small></div>
+    <div class="card"><span class="tag">IT</span><h3 style="margin:12px 0">Web Project</h3><p class="muted">Создать страницу проекта.</p><small class="muted">Срок: понедельник</small></div>
+  </div>
+</section>
 
 <section id="gallery">
-
-    <h2 class="section-title">Галерея</h2>
-
-    <p class="section-subtitle">
-        Нажми на карточку, чтобы узнать больше
-    </p>
-
-    <div class="grid">
-
-
-        <!-- 1 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Проекты учеников',
-             '💻',
-             'Ученики создают собственные проекты, приложения, исследования и другие интересные работы.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">💻</div>
-
-                <h3>Проекты учеников</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 2 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Школьные события',
-             '🎉',
-             'Праздники, встречи, концерты и другие события школьной жизни.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">🎉</div>
-
-                <h3>Школьные события</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 3 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Спортивные мероприятия',
-             '⚽',
-             'Соревнования, спортивные игры и командные мероприятия.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">⚽</div>
-
-                <h3>Спортивные мероприятия</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 4 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Творческие работы',
-             '🎨',
-             'Работы учеников в области искусства, дизайна и творчества.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">🎨</div>
-
-                <h3>Творческие работы</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 5 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Волонтёрство',
-             '🤝',
-             'Добровольческие проекты и мероприятия, в которых участвуют ученики.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">🤝</div>
-
-                <h3>Волонтёрство</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 6 -->
-
-        <div class="card gallery-card"
-             onclick="openGallery(
-             'Научные проекты',
-             '🔬',
-             'Исследования и научные проекты учеников.'
-             )">
-
-            <div class="gallery-content">
-
-                <div class="gallery-icon">🔬</div>
-
-                <h3>Научные проекты</h3>
-
-                <p>Нажми, чтобы открыть</p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+  <div class="section-head"><h2>Галерея</h2><p>Нажми на любую карточку — она откроется.</p></div>
+  <div class="grid">
+    <div class="card gallery-card reveal" onclick="openGallery('Проекты учеников','💻','Здесь можно разместить фотографии IT-проектов, приложений и других работ учеников.')"><div class="gallery-content"><div class="gallery-icon">💻</div><h3>Проекты учеников</h3><p>Открыть</p></div></div>
+    <div class="card gallery-card reveal" onclick="openGallery('Школьные события','🎉','Праздники, концерты, встречи и другие события школьной жизни.')"><div class="gallery-content"><div class="gallery-icon">🎉</div><h3>Школьные события</h3><p>Открыть</p></div></div>
+    <div class="card gallery-card reveal" onclick="openGallery('Спорт','⚽','Спортивные соревнования, командные игры и активные мероприятия.')"><div class="gallery-content"><div class="gallery-icon">⚽</div><h3>Спорт</h3><p>Открыть</p></div></div>
+    <div class="card gallery-card reveal" onclick="openGallery('Творчество','🎨','Рисунки, дизайн, музыка и творческие работы учеников.')"><div class="gallery-content"><div class="gallery-icon">🎨</div><h3>Творчество</h3><p>Открыть</p></div></div>
+    <div class="card gallery-card reveal" onclick="openGallery('Волонтёрство','🤝','Добровольческие проекты и общественно полезные инициативы.')"><div class="gallery-content"><div class="gallery-icon">🤝</div><h3>Волонтёрство</h3><p>Открыть</p></div></div>
+    <div class="card gallery-card reveal" onclick="openGallery('Научные проекты','🔬','Исследования, эксперименты и научные презентации учеников.')"><div class="gallery-content"><div class="gallery-icon">🔬</div><h3>Научные проекты</h3><p>Открыть</p></div></div>
+  </div>
 </section>
-
-
-<!-- TEACHERS -->
 
 <section id="teachers">
-
-    <h2 class="section-title">Учителя</h2>
-
-    <p class="section-subtitle">
-        Люди, которые помогают ученикам развиваться
-    </p>
-
-    <div class="grid">
-
-        <div class="card teacher">
-
-            <div class="teacher-avatar">👨‍🏫</div>
-
-            <h3>Учитель науки</h3>
-
-            <p>
-                Наука и исследовательские проекты
-            </p>
-
-        </div>
-
-
-        <div class="card teacher">
-
-            <div class="teacher-avatar">👩‍🏫</div>
-
-            <h3>Учитель языков</h3>
-
-            <p>
-                Английский и иностранные языки
-            </p>
-
-        </div>
-
-
-        <div class="card teacher">
-
-            <div class="teacher-avatar">👨‍💻</div>
-
-            <h3>Учитель IT</h3>
-
-            <p>
-                Программирование и технологии
-            </p>
-
-        </div>
-
-    </div>
-
+  <div class="section-head"><h2>Учителя</h2><p>Демонстрационный раздел преподавателей.</p></div>
+  <div class="grid">
+    <div class="card teacher reveal"><div class="avatar">👨‍🏫</div><h3>Алексей Петров</h3><p class="muted">Математика</p><div class="materials"><span class="tag">Олимпиады</span><span class="tag">Проекты</span></div></div>
+    <div class="card teacher reveal"><div class="avatar">👩‍🏫</div><h3>Анна Соколова</h3><p class="muted">Английский язык</p><div class="materials"><span class="tag">Языки</span><span class="tag">Дебаты</span></div></div>
+    <div class="card teacher reveal"><div class="avatar">👨‍💻</div><h3>Дмитрий Орлов</h3><p class="muted">Информатика</p><div class="materials"><span class="tag">IT</span><span class="tag">Web</span></div></div>
+  </div>
 </section>
 
-
-<!-- REVIEWS -->
-
-<section>
-
-    <h2 class="section-title">Отзывы</h2>
-
-    <p class="section-subtitle">
-        Мнения учеников и родителей
-    </p>
-
-    <div class="grid">
-
-        <div class="card review">
-
-            <h3>Ученик</h3>
-
-            <p>
-                Здесь можно заниматься проектами и пробовать разные направления.
-            </p>
-
-        </div>
-
-
-        <div class="card review">
-
-            <h3>Родитель</h3>
-
-            <p>
-                Нам нравится современный подход к обучению и большое количество возможностей.
-            </p>
-
-        </div>
-
-
-        <div class="card review">
-
-            <h3>Ученик</h3>
-
-            <p>
-                Особенно интересны технологии, проекты и школьные мероприятия.
-            </p>
-
-        </div>
-
-    </div>
-
+<section id="achievements">
+  <div class="section-head"><h2>Достижения</h2><p>Примеры достижений, которые можно разместить на сайте.</p></div>
+  <div class="grid-4">
+    <div class="card center"><div class="icon">🏆</div><h3>Олимпиады</h3><p class="muted">Победы и призовые места.</p></div>
+    <div class="card center"><div class="icon">💻</div><h3>IT</h3><p class="muted">Созданные проекты.</p></div>
+    <div class="card center"><div class="icon">🥇</div><h3>Спорт</h3><p class="muted">Результаты соревнований.</p></div>
+    <div class="card center"><div class="icon">🎨</div><h3>Творчество</h3><p class="muted">Конкурсы и выставки.</p></div>
+  </div>
 </section>
 
+<section id="materials">
+  <div class="section-head"><h2>Учебные материалы</h2><p>Демонстрационные ресурсы.</p></div>
+  <div class="grid">
+    <div class="card"><h3>📘 Математика</h3><p class="muted">Формулы и подготовка к контрольным.</p><div class="materials"><span class="tag">Алгебра</span><span class="tag">Геометрия</span></div></div>
+    <div class="card"><h3>🌎 Английский</h3><p class="muted">Словарь, грамматика и практика.</p><div class="materials"><span class="tag">Grammar</span><span class="tag">Vocabulary</span></div></div>
+    <div class="card"><h3>💻 IT</h3><p class="muted">Основы HTML, CSS и JavaScript.</p><div class="materials"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div></div>
+  </div>
+</section>
 
-<!-- ADMISSION -->
+<section id="ai">
+  <div class="section-head"><h2>🤖 AI-помощник школы</h2><p>Демонстрационная версия без подключения к настоящему AI-серверу.</p></div>
+  <div class="chat">
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg">Привет! Я демонстрационный помощник JOO High School. Спроси про поступление, расписание, IT или спорт.</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Напиши вопрос..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="btn" onclick="sendChat()">Отправить</button>
+    </div>
+  </div>
+</section>
+
+<section id="calendar">
+  <div class="section-head"><h2>📅 Календарь</h2><p>Ближайшие мероприятия.</p></div>
+  <div class="grid">
+    <div class="card"><div class="event"><div class="date"><b>15</b>СЕН</div><div><h3>День открытых дверей</h3><p class="muted">12:00 — 16:00</p></div></div></div>
+    <div class="card"><div class="event"><div class="date"><b>22</b>СЕН</div><div><h3>Научная конференция</h3><p class="muted">10:00 — 14:00</p></div></div></div>
+    <div class="card"><div class="event"><div class="date"><b>30</b>СЕН</div><div><h3>Спортивный день</h3><p class="muted">09:00 — 15:00</p></div></div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-head"><h2>Отзывы</h2><p>Демонстрационные отзывы.</p></div>
+  <div class="grid">
+    <div class="card quote"><p>Интересно заниматься проектами и пробовать разные направления.</p><br><b>— Ученик</b></div>
+    <div class="card quote"><p>Нравится сочетание учебы, технологий и внеклассных мероприятий.</p><br><b>— Родитель</b></div>
+    <div class="card quote"><p>Особенно интересны IT и научные проекты.</p><br><b>— Ученик</b></div>
+  </div>
+</section>
 
 <section id="admission">
-
-    <h2 class="section-title">Поступление</h2>
-
-    <p class="section-subtitle">
-        Оставь заявку, чтобы узнать больше
-    </p>
-
-    <div style="text-align:center;">
-
-        <button class="btn" onclick="openAdmission()">
-            Подать заявку
-        </button>
-
+  <div class="section-head"><h2>🎓 Поступление</h2><p>Демонстрационная форма заявки.</p></div>
+  <div class="notice">Важно: эта форма демонстрационная. Она не отправляет данные на сервер.</div>
+  <form class="form" onsubmit="submitAdmission(event)">
+    <div class="form-grid">
+      <div class="field"><label>Имя</label><input required placeholder="Ваше имя"></div>
+      <div class="field"><label>Класс</label><select required><option value="">Выберите</option><option>7 класс</option><option>8 класс</option><option>9 класс</option><option>10 класс</option><option>11 класс</option></select></div>
     </div>
-
+    <div class="field"><label>Email</label><input type="email" required placeholder="example@email.com"></div>
+    <div class="field"><label>Вопрос</label><textarea placeholder="Ваш вопрос о поступлении"></textarea></div>
+    <button class="btn success">Отправить заявку</button>
+  </form>
 </section>
 
-
-<!-- ONLINE FORM -->
-
-<section>
-
-    <h2 class="section-title">
-        Онлайн-заявка
-    </h2>
-
-    <p class="section-subtitle">
-        Заполни форму
-    </p>
-
-    <form class="form" onsubmit="submitForm(event)">
-
-        <div class="form-group">
-
-            <label>Имя</label>
-
-            <input
-                type="text"
-                placeholder="Введите имя"
-                required
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Класс</label>
-
-            <select required>
-
-                <option value="">Выберите класс</option>
-
-                <option>7 класс</option>
-                <option>8 класс</option>
-                <option>9 класс</option>
-                <option>10 класс</option>
-                <option>11 класс</option>
-
-            </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Email</label>
-
-            <input
-                type="email"
-                placeholder="example@email.com"
-                required
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label>Сообщение</label>
-
-            <textarea
-                placeholder="Ваш вопрос..."
-            ></textarea>
-
-        </div>
-
-
-        <button class="btn" type="submit">
-            Отправить заявку
-        </button>
-
+<section id="account">
+  <div class="section-head"><h2>👤 Личный кабинет</h2><p>Демонстрационная версия входа ученика.</p></div>
+  <div class="login-panel">
+    <form class="form" onsubmit="demoLogin(event)">
+      <div class="field"><label>Логин</label><input id="login" required placeholder="student"></div>
+      <div class="field"><label>Пароль</label><input type="password" required placeholder="••••••••"></div>
+      <button class="btn">Войти</button>
+      <p class="muted" style="margin-top:12px">Это демонстрация. Пароли никуда не отправляются.</p>
     </form>
-
+    <div id="dashboard" class="card dashboard">
+      <div class="userbox"><h3>Привет, ученик! 👋</h3><p class="muted">Демонстрационный кабинет</p></div>
+      <p><b>Средний результат:</b> 4.6 / 5</p>
+      <div class="progress"><span></span></div>
+      <br>
+      <p>📚 Домашних заданий: 3</p>
+      <p>🏆 Достижений: 8</p>
+      <p>📅 Ближайшее событие: научная конференция</p>
+    </div>
+  </div>
 </section>
 
-
-<!-- CONTACTS -->
+<section id="faq">
+  <div class="section-head"><h2>❓ Частые вопросы</h2><p>Нажми на вопрос, чтобы открыть ответ.</p></div>
+  <div class="faq">
+    <div class="item"><button onclick="toggleFaq(this)">Как поступить в школу?</button><div class="answer">Заполните демонстрационную форму поступления или добавьте сюда реальные правила приема школы.</div></div>
+    <div class="item"><button onclick="toggleFaq(this)">Есть ли IT-направление?</button><div class="answer">Да, в демонстрационном сайте есть раздел IT и технологий.</div></div>
+    <div class="item"><button onclick="toggleFaq(this)">Есть ли спорт?</button><div class="answer">Да, можно добавить список секций, расписание тренировок и результаты соревнований.</div></div>
+    <div class="item"><button onclick="toggleFaq(this)">Где посмотреть расписание?</button><div class="answer">На этой странице есть демонстрационный раздел расписания.</div></div>
+  </div>
+</section>
 
 <section id="contacts">
-
-    <h2 class="section-title">Контакты</h2>
-
-    <p class="section-subtitle">
-        Свяжитесь с нами
-    </p>
-
-    <div class="contacts">
-
-        <div class="contact-item">
-            📍 Адрес: JOO High School
-        </div>
-
-        <div class="contact-item">
-            📞 Телефон: +7 (000) 000-00-00
-        </div>
-
-        <div class="contact-item">
-            ✉️ Email:
-            <a href="mailto:school@example.com">
-                school@example.com
-            </a>
-        </div>
-
-        <br>
-
-        <a
-            class="btn"
-            href="https://www.google.com/maps"
-            target="_blank"
-        >
-            Открыть карту
-        </a>
-
-    </div>
-
+  <div class="section-head"><h2>📩 Контакты</h2><p>Здесь можно разместить настоящие контакты школы.</p></div>
+  <div class="contact-grid">
+    <div class="card contact"><div class="icon">📍</div><h3>Адрес</h3><p class="muted">JOO High School</p></div>
+    <div class="card contact"><div class="icon">📞</div><h3>Телефон</h3><a href="tel:+70000000000">+7 (000) 000-00-00</a></div>
+    <div class="card contact"><div class="icon">✉️</div><h3>Email</h3><a href="mailto:school@example.com">school@example.com</a></div>
+  </div>
+  <br>
+  <div class="map">🗺️ Здесь можно разместить настоящую карту школы</div>
+  <div class="center" style="margin-top:18px"><a class="btn" href="https://www.google.com/maps" target="_blank">Открыть Google Maps</a></div>
 </section>
 
-
-<!-- FOOTER -->
+</main>
 
 <footer>
-
-    <p>
-        © 2026 JOO High School
-    </p>
-
-    <p>
-        Современное образование для нового поколения
-    </p>
-
+  <div class="container footer-inner">
+    <div><b>JOO High School</b><br>Современное образование для нового поколения.</div>
+    <div>© 2026 JOO High School</div>
+  </div>
 </footer>
 
+<button id="topBtn" class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div id="toast" class="toast"></div>
 
-<!-- PROGRAM MODAL -->
-
-<div class="modal" id="programModal" onclick="closeModalOutside(event)">
-
-    <div class="modal-box">
-
-        <button class="modal-close" onclick="closeProgram()">
-            ×
-        </button>
-
-        <div class="modal-icon" id="programIcon">
-            🔬
-        </div>
-
-        <h2 id="programTitle">
-            Направление
-        </h2>
-
-        <br>
-
-        <p id="programText">
-            Описание направления.
-        </p>
-
-    </div>
-
+<!-- GENERAL MODAL -->
+<div class="modal" id="modal" onclick="outsideClose(event,'modal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="icon" id="modalIcon">⭐</div>
+    <h2 id="modalTitle">Заголовок</h2>
+    <br>
+    <p id="modalText" class="muted">Описание.</p>
+  </div>
 </div>
-
 
 <!-- GALLERY MODAL -->
-
-<div class="modal" id="galleryModal" onclick="closeGalleryOutside(event)">
-
-    <div class="modal-box">
-
-        <button class="modal-close" onclick="closeGallery()">
-            ×
-        </button>
-
-        <div class="modal-icon" id="galleryIcon">
-            💻
-        </div>
-
-        <h2 id="galleryTitle">
-            Галерея
-        </h2>
-
-        <br>
-
-        <p id="galleryText">
-            Описание.
-        </p>
-
-    </div>
-
+<div class="modal" id="galleryModal" onclick="outsideClose(event,'galleryModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeGallery()">×</button>
+    <div class="icon" id="galleryIcon">🖼️</div>
+    <h2 id="galleryTitle">Галерея</h2>
+    <br>
+    <p id="galleryText" class="muted">Описание.</p>
+    <br>
+    <div class="notice">💡 Чтобы здесь были настоящие фотографии, позже можно добавить изображения школы в этот раздел.</div>
+  </div>
 </div>
-
-
-<!-- ADMISSION MODAL -->
-
-<div class="modal" id="admissionModal" onclick="closeAdmissionOutside(event)">
-
-    <div class="modal-box">
-
-        <button class="modal-close" onclick="closeAdmission()">
-            ×
-        </button>
-
-        <div class="modal-icon">
-            🎓
-        </div>
-
-        <h2>
-            Поступление в JOO High School
-        </h2>
-
-        <br>
-
-        <p>
-            Чтобы узнать подробности о поступлении,
-            заполните онлайн-заявку или свяжитесь со школой.
-        </p>
-
-        <br>
-
-        <a href="#admission" class="btn" onclick="closeAdmission()">
-            Перейти к заявке
-        </a>
-
-    </div>
-
-</div>
-
 
 <script>
+const $ = id => document.getElementById(id);
 
-/* THEME */
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+  localStorage.setItem('jooTheme',document.body.classList.contains('dark')?'dark':'light');
+}
+if(localStorage.getItem('jooTheme')==='dark') document.body.classList.add('dark');
 
-function toggleTheme() {
+function toggleMenu(){ $('nav').classList.toggle('active'); }
 
-    document.body.classList.toggle("dark");
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=> $('nav').classList.remove('active')));
 
+function openModal(title,icon,text){
+  $('modalTitle').textContent=title;
+  $('modalIcon').textContent=icon;
+  $('modalText').textContent=text;
+  $('modal').classList.add('active');
+}
+function closeModal(){ $('modal').classList.remove('active'); }
+
+function openGallery(title,icon,text){
+  $('galleryTitle').textContent=title;
+  $('galleryIcon').textContent=icon;
+  $('galleryText').textContent=text;
+  $('galleryModal').classList.add('active');
+}
+function closeGallery(){ $('galleryModal').classList.remove('active'); }
+
+function outsideClose(e,id){
+  if(e.target.id===id) document.getElementById(id).classList.remove('active');
 }
 
-
-/* MOBILE MENU */
-
-function toggleMenu() {
-
-    document.getElementById("nav")
-        .classList.toggle("active");
-
-}
-
-
-/* PROGRAM MODAL */
-
-function openProgram(title, icon, text) {
-
-    document.getElementById("programTitle").textContent = title;
-
-    document.getElementById("programIcon").textContent = icon;
-
-    document.getElementById("programText").textContent = text;
-
-    document.getElementById("programModal")
-        .classList.add("active");
-
-}
-
-
-function closeProgram() {
-
-    document.getElementById("programModal")
-        .classList.remove("active");
-
-}
-
-
-function closeModalOutside(event) {
-
-    if (event.target.id === "programModal") {
-
-        closeProgram();
-
-    }
-
-}
-
-
-/* GALLERY MODAL */
-
-function openGallery(title, icon, text) {
-
-    document.getElementById("galleryTitle")
-        .textContent = title;
-
-    document.getElementById("galleryIcon")
-        .textContent = icon;
-
-    document.getElementById("galleryText")
-        .textContent = text;
-
-    document.getElementById("galleryModal")
-        .classList.add("active");
-
-}
-
-
-function closeGallery() {
-
-    document.getElementById("galleryModal")
-        .classList.remove("active");
-
-}
-
-
-function closeGalleryOutside(event) {
-
-    if (event.target.id === "galleryModal") {
-
-        closeGallery();
-
-    }
-
-}
-
-
-/* ADMISSION MODAL */
-
-function openAdmission() {
-
-    document.getElementById("admissionModal")
-        .classList.add("active");
-
-}
-
-
-function closeAdmission() {
-
-    document.getElementById("admissionModal")
-        .classList.remove("active");
-
-}
-
-
-function closeAdmissionOutside(event) {
-
-    if (event.target.id === "admissionModal") {
-
-        closeAdmission();
-
-    }
-
-}
-
-
-/* ESC KEY */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        closeProgram();
-        closeGallery();
-        closeAdmission();
-
-    }
-
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeModal();closeGallery();}
 });
 
-
-/* SEARCH */
-
-function searchSite() {
-
-    const value =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    const result =
-        document.getElementById("searchResult");
-
-    if (!value) {
-
-        result.innerHTML = "";
-
-        return;
-
-    }
-
-    const pages = {
-
-        "спорт": "⚽ Спорт — спортивные секции и соревнования.",
-
-        "it": "💻 IT — программирование и технологии.",
-
-        "технологии": "💻 IT — программирование и технологии.",
-
-        "наука": "🔬 Наука — исследования и эксперименты.",
-
-        "языки": "🌎 Языки — иностранные языки и коммуникация.",
-
-        "творчество": "🎨 Творчество — искусство и дизайн.",
-
-        "олимпиады": "🏆 Олимпиады — интеллектуальные соревнования.",
-
-        "лидерство": "⭐ Лидерство — командная работа и проекты.",
-
-        "учителя": "👨‍🏫 На сайте есть раздел с учителями.",
-
-        "галерея": "🖼️ Галерея — проекты и школьные события."
-
-    };
-
-    let found = false;
-
-    for (const key in pages) {
-
-        if (key.includes(value) || value.includes(key)) {
-
-            result.innerHTML = `
-                <div class="card">
-                    <h3>Результат поиска</h3>
-                    <p>${pages[key]}</p>
-                </div>
-            `;
-
-            found = true;
-
-            break;
-
-        }
-
-    }
-
-    if (!found) {
-
-        result.innerHTML = `
-            <div class="card">
-                <h3>Ничего не найдено</h3>
-                <p>Попробуйте другой запрос.</p>
-            </div>
-        `;
-
-    }
-
+function showToast(text){
+  const t=$('toast');
+  t.textContent=text;
+  t.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-
-/* FORM */
-
-function submitForm(event) {
-
-    event.preventDefault();
-
-    alert(
-        "Заявка отправлена! Это демонстрационная форма."
-    );
-
-    event.target.reset();
-
+function submitAdmission(e){
+  e.preventDefault();
+  showToast('✅ Демонстрационная заявка заполнена!');
+  e.target.reset();
 }
+
+function demoLogin(e){
+  e.preventDefault();
+  $('dashboard').classList.add('active');
+  showToast('👤 Демонстрационный вход выполнен');
+}
+
+function toggleFaq(btn){
+  btn.parentElement.classList.toggle('open');
+}
+
+function sendChat(){
+  const input=$('chatInput');
+  const text=input.value.trim();
+  if(!text) return;
+  const box=$('chatMessages');
+  const user=document.createElement('div');
+  user.className='msg user';
+  user.textContent=text;
+  box.appendChild(user);
+  input.value='';
+  let answer='Попробуй спросить про поступление, расписание, IT, спорт или галерею.';
+  const q=text.toLowerCase();
+  if(q.includes('поступ')) answer='🎓 В разделе «Поступление» находится демонстрационная форма заявки.';
+  else if(q.includes('распис')) answer='📚 Расписание находится в разделе «Расписание».';
+  else if(q.includes('спорт')) answer='⚽ В школе можно добавить спортивные секции и соревнования.';
+  else if(q.includes('it')||q.includes('айти')||q.includes('программ')) answer='💻 IT-направление включает программирование и веб-проекты.';
+  else if(q.includes('галере')) answer='🖼️ Открой раздел «Галерея» и нажми на любую карточку.';
+  setTimeout(()=>{
+    const bot=document.createElement('div');
+    bot.className='msg';
+    bot.textContent=answer;
+    box.appendChild(bot);
+    box.scrollTop=box.scrollHeight;
+  },350);
+}
+
+const searchable=[
+  ['О школе','Информация о JOO High School','about'],
+  ['Наука','Исследования и эксперименты','directions'],
+  ['IT и технологии','Программирование и технологии','directions'],
+  ['Языки','Иностранные языки','directions'],
+  ['Творчество','Искусство и дизайн','directions'],
+  ['Олимпиады','Конкурсы и достижения','achievements'],
+  ['Спорт','Секции и соревнования','directions'],
+  ['Новости','Новости школы','news'],
+  ['Расписание','Расписание уроков','schedule'],
+  ['Домашние задания','Задания учеников','homework'],
+  ['Галерея','Проекты и школьные события','gallery'],
+  ['Учителя','Преподаватели','teachers'],
+  ['Поступление','Заявка на поступление','admission'],
+  ['FAQ','Частые вопросы','faq'],
+  ['Контакты','Контакты школы','contacts']
+];
+
+const searchBox=document.createElement('section');
+searchBox.innerHTML=`<div class="container"><div class="section-head"><h2>🔎 Поиск по сайту</h2><p>Найди нужный раздел.</p></div><div class="search"><input id="siteSearch" placeholder="Например: спорт, IT, расписание..."></div><div id="searchResults" class="search-results"></div></div>`;
+document.querySelector('main').insertBefore(searchBox,document.querySelector('#news'));
+
+$('siteSearch').addEventListener('input',function(){
+  const q=this.value.toLowerCase().trim();
+  const out=$('searchResults');
+  if(!q){out.innerHTML='';return}
+  const results=searchable.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q));
+  out.innerHTML=results.length?results.map(x=>`<div class="result"><b>${x[0]}</b><br><span class="muted">${x[1]}</span> — <a href="#${x[2]}" style="color:var(--primary);font-weight:800">открыть</a></div>`).join(''):`<div class="result">Ничего не найдено.</div>`;
+});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const topBtn=$('topBtn');
+window.addEventListener('scroll',()=>topBtn.classList.toggle('show',window.scrollY>500));
 
 </script>
-
 </body>
 </html>
