@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JOO High School — современная школа с качественным образованием, наукой, IT, спортом, творчеством и олимпиадами.">
+<meta name="description" content="JOO High School — современная школа с качественным образованием, направлениями IT, науки, спорта и творчества.">
 <title>JOO High School | Официальный сайт</title>
 
 <style>
@@ -130,6 +130,22 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .reveal{opacity:0;transform:translateY(25px);transition:.7s}
 .reveal.visible{opacity:1;transform:none}
+
+/* NEW: student account, interactive schedule, QR and achievement photos */
+.achievement-photo{height:190px;border-radius:16px;overflow:hidden;margin:-5px -5px 16px;cursor:pointer;background:var(--surface2)}
+.achievement-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
+.achievement-photo:hover img{transform:scale(1.06)}
+.achievement-card{overflow:hidden}
+.schedule-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;justify-content:center}
+.schedule-controls select,.day-btn{padding:11px 14px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:12px;font-weight:700;cursor:pointer}
+.day-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.qr-box{text-align:center;max-width:520px;margin:auto}
+#qrcode{display:flex;justify-content:center;margin:20px 0}
+#qrcode img,#qrcode canvas{padding:10px;background:#fff;border-radius:14px}
+.account-form{max-width:560px;margin:auto}
+.account-info{display:none}
+.account-info.active{display:block}
+
 @media(max-width:900px){
   nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--surface);padding:20px;flex-direction:column;border-bottom:1px solid var(--border)}
   nav.active{display:flex}.menu-btn{display:block}.grid,.grid-4,.contact-grid{grid-template-columns:1fr 1fr}.about,.login-panel{grid-template-columns:1fr}
@@ -166,8 +182,8 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 <section class="hero">
   <div class="hero-content">
     <span class="badge">🎓 Современное образование</span>
-  <p>JOO High School — современная школа с качественным образованием, направлениями IT, науки, спорта и творчества.</p>
-    <p>Место, где знания превращаются в проекты, идеи и возможности.</p>
+    <h1>Добро пожаловать в <span>JOO High School</span></h1>
+    <p>JOO High School — современная школа с качественным образованием, направлениями IT, науки, спорта и творчества.</p>
     <div class="actions">
       <a class="btn" href="#admission">🎓 Поступление</a>
       <a class="btn secondary" href="#about">Узнать о школе</a>
@@ -223,18 +239,9 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 </section>
 
 <section id="schedule">
-  <div class="section-head"><h2>Расписание</h2><p>Демонстрационное расписание 10 класса.</p></div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Время</th><th>Понедельник</th><th>Вторник</th><th>Среда</th><th>Четверг</th><th>Пятница</th></tr></thead>
-      <tbody>
-        <tr><td>08:30</td><td>Математика</td><td>Английский</td><td>Физика</td><td>Информатика</td><td>История</td></tr>
-        <tr><td>09:25</td><td>Русский язык</td><td>Биология</td><td>Математика</td><td>Английский</td><td>Физика</td></tr>
-        <tr><td>10:25</td><td>Информатика</td><td>История</td><td>Литература</td><td>Математика</td><td>Биология</td></tr>
-        <tr><td>11:20</td><td>Физика</td><td>Математика</td><td>Английский</td><td>Проект</td><td>Спорт</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="section-head"><h2>📅 Интерактивное расписание</h2><p>Выбери класс и день недели.</p></div>
+  <div class="schedule-controls"><select id="classSelect"><option>10A</option><option>10B</option><option>11A</option></select><div id="dayButtons"></div></div>
+  <div class="table-wrap"><table><thead><tr><th>Время</th><th>Предмет</th><th>Кабинет</th></tr></thead><tbody id="scheduleBody"></tbody></table></div>
 </section>
 
 <section id="homework">
@@ -268,12 +275,12 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 </section>
 
 <section id="achievements">
-  <div class="section-head"><h2>Достижения</h2><p>Примеры достижений, которые можно разместить на сайте.</p></div>
+  <div class="section-head"><h2>🏆 Достижения учеников</h2><p>Фотографии проектов, олимпиад, соревнований и творческих работ.</p></div>
   <div class="grid-4">
-    <div class="card center"><div class="icon">🏆</div><h3>Олимпиады</h3><p class="muted">Победы и призовые места.</p></div>
-    <div class="card center"><div class="icon">💻</div><h3>IT</h3><p class="muted">Созданные проекты.</p></div>
-    <div class="card center"><div class="icon">🥇</div><h3>Спорт</h3><p class="muted">Результаты соревнований.</p></div>
-    <div class="card center"><div class="icon">🎨</div><h3>Творчество</h3><p class="muted">Конкурсы и выставки.</p></div>
+    <div class="card achievement-card reveal"><div class="achievement-photo" onclick="openPhoto('Победа на олимпиаде','Ученики JOO High School — призёры школьной олимпиады.')"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80" alt="Ученики на школьном мероприятии"></div><h3>🥇 Олимпиады</h3><p class="muted">Призовые места и интеллектуальные конкурсы.</p></div>
+    <div class="card achievement-card reveal"><div class="achievement-photo" onclick="openPhoto('IT-проект учеников','Командная работа над цифровым проектом.')"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Ученики работают над IT-проектом"></div><h3>💻 IT-проекты</h3><p class="muted">Сайты, приложения и цифровые проекты.</p></div>
+    <div class="card achievement-card reveal"><div class="achievement-photo" onclick="openPhoto('Спортивное достижение','Командное участие в школьных соревнованиях.')"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80" alt="Школьное спортивное мероприятие"></div><h3>🏅 Спорт</h3><p class="muted">Соревнования, команды и спортивные результаты.</p></div>
+    <div class="card achievement-card reveal"><div class="achievement-photo" onclick="openPhoto('Творческая работа','Выставки, дизайн и творческие проекты учеников.')"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80" alt="Творческая работа ученика"></div><h3>🎨 Творчество</h3><p class="muted">Конкурсы, выставки и творческие работы.</p></div>
   </div>
 </section>
 
@@ -347,9 +354,14 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
       <br>
       <p>📚 Домашних заданий: 3</p>
       <p>🏆 Достижений: 8</p>
-      <p>📅 Ближайшее событие: научная конференция</p>
+      <p>📅 Ближайшее событие: научная конференция</p><br><button class="btn small" type="button" onclick="demoLogout()">Выйти</button>
     </div>
   </div>
+</section>
+
+<section id="qr">
+  <div class="section-head"><h2>📱 QR-код сайта</h2><p>Отсканируй код телефоном, чтобы открыть JOO High School.</p></div>
+  <div class="card qr-box"><div id="qrcode"></div><p class="muted">QR-код ведёт на официальный адрес сайта.</p><br><a class="btn" href="https://sekam006-lang.github.io/joo/" target="_blank">Открыть сайт</a></div>
 </section>
 
 <section id="faq">
@@ -496,6 +508,55 @@ function sendChat(){
     box.scrollTop=box.scrollHeight;
   },350);
 }
+
+
+function openPhoto(title,text){
+  $('galleryTitle').textContent=title;
+  $('galleryIcon').textContent='📸';
+  $('galleryText').textContent=text;
+  $('galleryModal').classList.add('active');
+}
+
+function demoLogout(){ $('dashboard').classList.remove('active'); showToast('Вы вышли из демонстрационного кабинета'); }
+
+const scheduleData={
+  '10A':{
+    'Понедельник':[['08:30','Математика','201'],['09:25','Русский язык','203'],['10:25','Информатика','305'],['11:20','Физика','204']],
+    'Вторник':[['08:30','Английский язык','210'],['09:25','Биология','202'],['10:25','История','205'],['11:20','Математика','201']],
+    'Среда':[['08:30','Физика','204'],['09:25','Математика','201'],['10:25','Литература','203'],['11:20','Английский язык','210']],
+    'Четверг':[['08:30','Информатика','305'],['09:25','Английский язык','210'],['10:25','Математика','201'],['11:20','Проект','306']],
+    'Пятница':[['08:30','История','205'],['09:25','Физика','204'],['10:25','Биология','202'],['11:20','Спорт','спортзал']]
+  },
+  '10B':{
+    'Понедельник':[['08:30','История','205'],['09:25','Математика','201'],['10:25','Английский язык','210'],['11:20','Спорт','спортзал']],
+    'Вторник':[['08:30','Информатика','305'],['09:25','Физика','204'],['10:25','Русский язык','203'],['11:20','Биология','202']],
+    'Среда':[['08:30','Математика','201'],['09:25','Литература','203'],['10:25','История','205'],['11:20','Проект','306']],
+    'Четверг':[['08:30','Английский язык','210'],['09:25','Биология','202'],['10:25','Физика','204'],['11:20','Математика','201']],
+    'Пятница':[['08:30','Русский язык','203'],['09:25','Информатика','305'],['10:25','Математика','201'],['11:20','Английский язык','210']]
+  },
+  '11A':{
+    'Понедельник':[['08:30','Математика','201'],['09:25','Физика','204'],['10:25','Информатика','305'],['11:20','Английский язык','210']],
+    'Вторник':[['08:30','История','205'],['09:25','Математика','201'],['10:25','Литература','203'],['11:20','Проект','306']],
+    'Среда':[['08:30','Биология','202'],['09:25','Физика','204'],['10:25','Математика','201'],['11:20','Спорт','спортзал']],
+    'Четверг':[['08:30','Информатика','305'],['09:25','История','205'],['10:25','Английский язык','210'],['11:20','Математика','201']],
+    'Пятница':[['08:30','Русский язык','203'],['09:25','Биология','202'],['10:25','Физика','204'],['11:20','Классный час','101']]
+  }
+};
+const days=['Понедельник','Вторник','Среда','Четверг','Пятница'];
+let currentDay='Понедельник';
+function renderSchedule(){
+  const cls=$('classSelect').value;
+  $('dayButtons').innerHTML=days.map(d=>`<button type="button" class="day-btn ${d===currentDay?'active':''}" onclick="setScheduleDay('${d}')">${d.slice(0,2)}</button>`).join('');
+  $('scheduleBody').innerHTML=scheduleData[cls][currentDay].map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td>${r[2]}</td></tr>`).join('');
+}
+function setScheduleDay(day){currentDay=day;renderSchedule();}
+$('classSelect').addEventListener('change',renderSchedule);
+renderSchedule();
+
+const qrScript=document.createElement('script');
+qrScript.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+qrScript.onload=()=>new QRCode($('qrcode'),{text:'https://sekam006-lang.github.io/joo/',width:220,height:220});
+document.head.appendChild(qrScript);
 
 const searchable=[
   ['О школе','Информация о JOO High School','about'],
