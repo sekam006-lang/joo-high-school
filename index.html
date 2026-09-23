@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#315efb">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22JOO%20High%20School%22%2C%22short_name%22%3A%22JOO%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%7D">
 <meta name="description" content="JOO High School — современная школа с качественным образованием, направлениями IT, науки, спорта и творчества.">
 <title>JOO High School | Официальный сайт</title>
 
@@ -170,9 +173,13 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
       <a href="#schedule">Расписание</a>
       <a href="#gallery">Галерея</a>
       <a href="#admission">Поступление</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#grades">Оценки</a><a href="#announcements">Объявления</a><a href="#contacts">Контакты</a>
     </nav>
+    <select class="icon-btn" id="languageSelect" onchange="changeLanguage(this.value)" title="Язык">
+      <option value="ru">🇷🇺 RU</option><option value="kz">🇰🇿 KZ</option><option value="en">🇬🇧 EN</option>
+    </select>
     <button class="icon-btn" onclick="toggleTheme()" title="Тема">🌙</button>
+    <button class="icon-btn" onclick="showNotifications()" title="Уведомления">🔔</button>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </header>
@@ -226,6 +233,45 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
     <div class="card clickable reveal" onclick="openModal('Олимпиады','🏆','Подготовка к интеллектуальным соревнованиям, олимпиадам и конкурсам.')"><div class="icon">🏆</div><h3>Олимпиады</h3><p class="muted">Конкурсы и достижения.</p></div>
     <div class="card clickable reveal" onclick="openModal('Лидерство','⭐','Командная работа, организация проектов, презентации и развитие лидерских навыков.')"><div class="icon">⭐</div><h3>Лидерство</h3><p class="muted">Команды и проекты.</p></div>
     <div class="card clickable reveal" onclick="openModal('Спорт','⚽','Секции, соревнования, командные игры и активные школьные мероприятия.')"><div class="icon">⚽</div><h3>Спорт</h3><p class="muted">Секции и соревнования.</p></div>
+  </div>
+</section>
+
+
+<section id="quick">
+  <div class="section-head"><h2>✨ Возможности сайта</h2><p>Все основные функции JOO High School в одном месте.</p></div>
+  <div class="grid-4">
+    <div class="card clickable reveal" onclick="location.href='#account'"><div class="icon">👤</div><h3>Кабинет</h3><p class="muted">Оценки, задания и события ученика.</p></div>
+    <div class="card clickable reveal" onclick="location.href='#schedule'"><div class="icon">📅</div><h3>Расписание</h3><p class="muted">Класс, день и кабинет.</p></div>
+    <div class="card clickable reveal" onclick="location.href='#qr'"><div class="icon">📱</div><h3>QR-код</h3><p class="muted">Быстрый вход на сайт с телефона.</p></div>
+    <div class="card clickable reveal" onclick="location.href='#achievements'"><div class="icon">🏆</div><h3>Достижения</h3><p class="muted">Проекты, олимпиады и соревнования.</p></div>
+  </div>
+</section>
+
+<section id="announcements">
+  <div class="section-head"><h2>📢 Объявления</h2><p>Важная информация для учеников и родителей.</p></div>
+  <div class="grid">
+    <div class="card"><span class="tag">Важно</span><h3 style="margin:15px 0 7px">Расписание обновлено</h3><p class="muted">Проверь расписание своего класса перед началом учебного дня.</p></div>
+    <div class="card"><span class="tag">Событие</span><h3 style="margin:15px 0 7px">Регистрация на мероприятия</h3><p class="muted">В календаре можно открыть ближайшие школьные события.</p></div>
+    <div class="card"><span class="tag">Учёба</span><h3 style="margin:15px 0 7px">Домашние задания</h3><p class="muted">Новые задания доступны в соответствующем разделе.</p></div>
+  </div>
+</section>
+
+<section id="grades">
+  <div class="section-head"><h2>📊 Успеваемость</h2><p>Демонстрационная статистика ученика.</p></div>
+  <div class="grid">
+    <div class="card center"><div class="icon">📚</div><h3>Средняя оценка</h3><strong style="font-size:38px;color:var(--primary)">4.6</strong><p class="muted">из 5</p></div>
+    <div class="card"><h3>Предметы</h3><p>Математика — <b>5</b></p><p>Информатика — <b>5</b></p><p>Английский — <b>4</b></p><p>Физика — <b>4</b></p></div>
+    <div class="card"><h3>Прогресс</h3><div class="progress"><span style="width:92%"></span></div><p class="muted" style="margin-top:10px">92% учебных целей выполнено</p></div>
+  </div>
+</section>
+
+<section id="schoolmap">
+  <div class="section-head"><h2>🗺️ Карта школы</h2><p>Демонстрационная схема кабинетов.</p></div>
+  <div class="grid-4">
+    <div class="card center"><h3>1 этаж</h3><p class="muted">101 • 102 • 103 • Спортзал</p></div>
+    <div class="card center"><h3>2 этаж</h3><p class="muted">201 • 202 • 203 • 204</p></div>
+    <div class="card center"><h3>3 этаж</h3><p class="muted">305 • 306 • IT-лаборатория</p></div>
+    <div class="card center"><h3>Общие зоны</h3><p class="muted">Библиотека • Актовый зал • Кафе</p></div>
   </div>
 </section>
 
@@ -388,6 +434,11 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 
 </main>
 
+<section id="app">
+  <div class="section-head"><h2>📲 Сайт как приложение</h2><p>На телефоне сайт можно добавить на главный экран через меню браузера «Добавить на главный экран».</p></div>
+  <div class="card center"><button class="btn" onclick="showToast('📲 Открой меню браузера и выбери «Добавить на главный экран»')">Как установить</button></div>
+</section>
+
 <footer>
   <div class="container footer-inner">
     <div><b>JOO High School</b><br>Современное образование для нового поколения.</div>
@@ -397,6 +448,18 @@ body.dark .notice{background:#3b321c;color:#f4d67a;border-color:#665728}
 
 <button id="topBtn" class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <div id="toast" class="toast"></div>
+
+
+<div class="modal" id="notificationModal" onclick="outsideClose(event,'notificationModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeNotifications()">×</button>
+    <div class="icon">🔔</div>
+    <h2>Уведомления</h2><br>
+    <div class="card" style="margin-bottom:10px"><b>📅 Расписание</b><p class="muted">Проверь уроки на завтра.</p></div>
+    <div class="card" style="margin-bottom:10px"><b>🏆 Достижения</b><p class="muted">Добавлены новые демонстрационные достижения.</p></div>
+    <div class="card"><b>📢 Объявление</b><p class="muted">Не забудь посмотреть календарь мероприятий.</p></div>
+  </div>
+</div>
 
 <!-- GENERAL MODAL -->
 <div class="modal" id="modal" onclick="outsideClose(event,'modal')">
@@ -476,8 +539,10 @@ function submitAdmission(e){
 function demoLogin(e){
   e.preventDefault();
   $('dashboard').classList.add('active');
+  localStorage.setItem('jooLoggedIn','1');
   showToast('👤 Демонстрационный вход выполнен');
 }
+if(localStorage.getItem('jooLoggedIn')==='1' && $('dashboard')) $('dashboard').classList.add('active');
 
 function toggleFaq(btn){
   btn.parentElement.classList.toggle('open');
@@ -517,7 +582,7 @@ function openPhoto(title,text){
   $('galleryModal').classList.add('active');
 }
 
-function demoLogout(){ $('dashboard').classList.remove('active'); showToast('Вы вышли из демонстрационного кабинета'); }
+function demoLogout(){ $('dashboard').classList.remove('active'); localStorage.removeItem('jooLoggedIn'); showToast('Вы вышли из демонстрационного кабинета'); }
 
 const scheduleData={
   '10A':{
@@ -557,6 +622,24 @@ const qrScript=document.createElement('script');
 qrScript.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
 qrScript.onload=()=>new QRCode($('qrcode'),{text:'https://sekam006-lang.github.io/joo/',width:220,height:220});
 document.head.appendChild(qrScript);
+
+
+function showNotifications(){ $('notificationModal').classList.add('active'); }
+function closeNotifications(){ $('notificationModal').classList.remove('active'); }
+
+function changeLanguage(lang){
+  const titles = {
+    ru:'JOO High School',
+    kz:'JOO High School',
+    en:'JOO High School'
+  };
+  document.documentElement.lang = lang;
+  showToast(lang==='kz' ? '🇰🇿 Қазақша режимі таңдалды' : lang==='en' ? '🇬🇧 English mode selected' : '🇷🇺 Русский режим выбран');
+  document.title = titles[lang] + ' | Официальный сайт';
+  localStorage.setItem('jooLang',lang);
+}
+const savedLang=localStorage.getItem('jooLang');
+if(savedLang && $('languageSelect')) $('languageSelect').value=savedLang;
 
 const searchable=[
   ['О школе','Информация о JOO High School','about'],
